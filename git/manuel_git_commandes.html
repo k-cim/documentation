@@ -1,0 +1,88 @@
+<!-- === Fichier : manuel_git_commandes.html === -->
+<!-- Version : 0.01.00 -->
+<!-- Date : 2025-07-26 13:20:00 UTC -->
+<!-- Manuel des commandes Git – utilisation en ligne de commande (CLI) -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Manuel Git – Commandes principales</title>
+  <link rel="stylesheet" href="manual-theme.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🛠️ Manuel Git – Commandes principales<br><span class="version">Version 0.01.00</span></h1>
+
+    <p>Ce manuel présente les principales commandes Git utilisées en ligne de commande pour initialiser, cloner, versionner, pousser, récupérer, et gérer l’historique d’un dépôt.</p>
+
+    <h2>📁 1. Initialisation d’un dépôt</h2>
+    <pre><code>git init</code></pre>
+    <p>Initialise un dépôt Git vide dans le dossier courant.</p>
+
+    <h2>🌐 2. Clonage d’un dépôt distant</h2>
+    <pre><code>git clone <em>URL</em></code></pre>
+    <p>Crée une copie locale d’un dépôt distant.</p>
+
+    <h2>📌 3. Vérifier le statut du dépôt</h2>
+    <pre><code>git status</code></pre>
+    <p>Affiche les fichiers modifiés, ajoutés, ou en attente de commit.</p>
+
+    <h2>➕ 4. Ajouter des fichiers à l’index</h2>
+    <pre><code>git add <em>fichier</em></code></pre>
+    <p>Prépare les fichiers à être commités.</p>
+
+    <h2>📝 5. Commit des modifications</h2>
+    <pre><code>git commit -m "Message explicite"</code></pre>
+    <p>Valide les changements ajoutés avec un message.</p>
+
+    <h2>🚀 6. Pousser les changements sur le dépôt distant</h2>
+    <pre><code>git push origin <em>branche</em></code></pre>
+    <p>Envoie les commits locaux sur GitHub ou autre remote.</p>
+
+    <h2>📥 7. Récupérer les changements distants</h2>
+    <pre><code>git pull</code></pre>
+    <p>Récupère et fusionne les modifications depuis le dépôt distant.</p>
+
+    <h2>🔄 8. Gestion des branches</h2>
+    <pre><code>git branch</code></pre>
+    <p>Affiche les branches locales.</p>
+    <pre><code>git branch <em>nouvelle-branche</em></code></pre>
+    <p>Crée une nouvelle branche.</p>
+    <pre><code>git checkout <em>branche</em></code></pre>
+    <p>Bascule sur une autre branche.</p>
+    <pre><code>git merge <em>branche</em></code></pre>
+    <p>Fusionne une branche dans celle courante.</p>
+
+    <h2>🧹 9. Suppression d’une branche</h2>
+    <pre><code>git branch -d <em>branche</em></code></pre>
+    <p>Supprime une branche locale.</p>
+
+    <h2>🔍 10. Historique des commits</h2>
+    <pre><code>git log</code></pre>
+    <p>Affiche la liste des commits.</p>
+    <pre><code>git log --oneline --graph --all</code></pre>
+    <p>Affichage condensé avec branches visibles.</p>
+
+    <h2>🎯 11. Utilisation des tags</h2>
+    <pre><code>git tag v1.0.0</code></pre>
+    <p>Crée un tag de version.</p>
+    <pre><code>git push origin --tags</code></pre>
+    <p>Envoie les tags vers le dépôt distant.</p>
+
+    <h2>♻️ 12. Revenir à une version précédente</h2>
+    <pre><code>git checkout <em>commit_id</em> -- chemin/fichier</code></pre>
+    <p>Restaure un fichier à partir d’un commit antérieur.</p>
+
+    <hr>
+
+    <p><strong>💡 Astuce :</strong> Utilisez <code>git help <commande></code> pour obtenir l’aide spécifique à chaque commande.</p>
+    <p>Consultez aussi la documentation officielle sur <a href="https://git-scm.com/doc" target="_blank">git-scm.com/doc</a>.</p>
+
+    <footer>
+      <p class="footer-text">Manuel généré pour usage interne – projet SBSRATE / Git</p>
+    </footer>
+  </div>
+</body>
+</html>
+
