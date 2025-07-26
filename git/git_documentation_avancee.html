@@ -1,0 +1,104 @@
+<!-- === File: git_documentation_avancee.html === -->
+<!-- Version : 1.0.0 -->
+<!-- Date : 2025-07-26 16:09:05 UTC -->
+<!-- Documentation technique avancée style O'Reilly -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Git – Documentation Technique Avancée</title>
+  <link rel="stylesheet" href="manual-theme.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Git – Documentation Technique Avancée</h1>
+    <p><strong>Version :</strong> 1.0.0</p>
+    <p><strong>Date :</strong> 2025-07-26 16:09:05 UTC</p>
+
+    <h2>📖 Chapitre 1 : Introduction à Git</h2>
+    <p>Git est un système de contrôle de version distribué largement utilisé dans le développement logiciel. Il permet aux développeurs de collaborer efficacement et de gérer facilement les historiques de leurs projets.</p>
+
+    <h2>🛠️ Chapitre 2 : Installation et Configuration</h2>
+    <h3>Installation sous Linux</h3>
+    <pre><code>sudo apt update
+sudo apt install git</code></pre>
+
+    <h3>Configuration initiale</h3>
+    <pre><code>git config --global user.name "Votre Nom"
+git config --global user.email "votre@email.com"
+git config --global core.editor "vim"</code></pre>
+
+    <h3>Fichiers de configuration</h3>
+    <ul>
+      <li><code>~/.gitconfig</code> – Configurations globales de l'utilisateur</li>
+      <li><code>.git/config</code> – Configurations spécifiques au dépôt</li>
+    </ul>
+
+    <h2>🔑 Chapitre 3 : Gestion des clés SSH</h2>
+    <p>La connexion aux dépôts distants sécurisés se fait via des clés SSH :</p>
+    <pre><code>ssh-keygen -t ed25519 -C "votre@email.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub</code></pre>
+
+    <h2>🚦 Chapitre 4 : Gestion des dépôts</h2>
+    <h3>Créer et cloner un dépôt</h3>
+    <pre><code>git init nom_du_projet
+git clone git@github.com:utilisateur/projet.git</code></pre>
+
+    <h3>Ajouter et suivre des fichiers</h3>
+    <pre><code>git add fichier.txt
+git commit -m "Message descriptif"</code></pre>
+
+    <h2>🌳 Chapitre 5 : Branches et Fusions</h2>
+    <h3>Gestion des branches</h3>
+    <pre><code>git branch nouvelle_branche
+git checkout nouvelle_branche
+git merge branche_source</code></pre>
+
+    <h2>🔍 Chapitre 6 : Inspection et débogage</h2>
+    <h3>Logs avancés</h3>
+    <pre><code>git log --graph --oneline --decorate --all</code></pre>
+
+    <h3>Historique des modifications</h3>
+    <pre><code>git blame fichier.txt</code></pre>
+
+    <h2>⚡ Chapitre 7 : Utilisation avancée</h2>
+    <h3>Alias Git personnalisés</h3>
+    <pre><code>git config --global alias.st "status"
+git config --global alias.co "checkout"
+git config --global alias.br "branch"</code></pre>
+
+    <h3>Hooks Git</h3>
+    <p>Automatisation de tâches avant ou après certains événements :</p>
+    <pre><code>.git/hooks/pre-commit
+.git/hooks/post-commit</code></pre>
+
+    <h2>🚨 Chapitre 8 : Gestion des erreurs courantes</h2>
+    <ul>
+      <li>Résolution de conflits : <code>git mergetool</code></li>
+      <li>Annulation d'un commit : <code>git revert [commit]</code></li>
+      <li>Modification du dernier commit : <code>git commit --amend</code></li>
+    </ul>
+
+    <h2>🧑‍💻 Chapitre 9 : Bonnes pratiques</h2>
+    <ul>
+      <li>Commits atomiques et descriptifs</li>
+      <li>Branches dédiées par fonctionnalités</li>
+      <li>Utilisation régulière de <code>.gitignore</code></li>
+    </ul>
+
+    <h2>📌 Chapitre 10 : Ressources complémentaires</h2>
+    <ul>
+      <li><a href="https://git-scm.com/docs">Documentation officielle Git</a></li>
+      <li><a href="https://github.com/">GitHub</a></li>
+      <li><a href="https://about.gitlab.com/">GitLab</a></li>
+    </ul>
+
+    <footer>
+      <p>📖 Documentation technique complète réalisée par Aetherion / SBSRATE.</p>
+    </footer>
+  </div>
+</body>
+</html>

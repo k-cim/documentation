@@ -1,0 +1,79 @@
+<!-- === File: manuel_git_client_avance.html === -->
+<!-- Version : 1.0.0 -->
+<!-- Date : 2025-07-26 15:56:23 UTC -->
+<!-- Manuel généré automatiquement – Structure UNIX stricte -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Git – Utilisation Avancée Côté Client</title>
+  <link rel="stylesheet" href="manual-theme.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📘 Git – Utilisation Avancée Côté Client</h1>
+    <p><strong>Version :</strong> 1.0.0</p>
+    <p><strong>Date :</strong> 2025-07-26 15:56:23 UTC</p>
+
+    <h2>1. Préparation de l’environnement</h2>
+    <ul>
+      <li>Installer Git : <code>sudo apt install git</code></li>
+      <li>Configurer l’identité :</li>
+      <pre><code>git config --global user.name "Votre Nom"
+git config --global user.email "votre@email.com"</code></pre>
+      <li>Définir l’éditeur par défaut (ex. vim) :</li>
+      <pre><code>git config --global core.editor "vim"</code></pre>
+      <li>Vérifier la config :</li>
+      <pre><code>git config --list</code></pre>
+    </ul>
+
+    <h2>2. Variables d’environnement importantes</h2>
+    <ul>
+      <li><code>GIT_AUTHOR_NAME</code>, <code>GIT_AUTHOR_EMAIL</code> : définissent l’auteur si différents de la config globale</li>
+      <li><code>GIT_SSH</code> : pour utiliser un binaire ssh personnalisé</li>
+      <li><code>GIT_TRACE</code>, <code>GIT_CURL_VERBOSE</code> : pour déboguer les requêtes réseau</li>
+    </ul>
+
+    <h2>3. Fichiers de configuration</h2>
+    <ul>
+      <li><code>~/.gitconfig</code> : config utilisateur globale</li>
+      <li><code>.git/config</code> : config spécifique au dépôt courant</li>
+      <li><code>~/.ssh/config</code> : pour configurer des hosts GitHub/GitLab personnalisés</li>
+    </ul>
+
+    <h2>4. Génération de la clé SSH</h2>
+    <pre><code>ssh-keygen -t ed25519 -C "votre@email.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519</code></pre>
+    <p>Copiez la clé publique dans GitHub/GitLab :</p>
+    <pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+
+    <h2>5. Commandes Git client – de base à avancé</h2>
+    <ul>
+      <li><strong>Initialiser un dépôt :</strong> <code>git init</code></li>
+      <li><strong>Ajouter tous les fichiers :</strong> <code>git add .</code></li>
+      <li><strong>Commit avec message :</strong> <code>git commit -m "Premier commit"</code></li>
+      <li><strong>Lier un dépôt distant :</strong> <code>git remote add origin git@github.com:user/repo.git</code></li>
+      <li><strong>Pousser une branche :</strong> <code>git push -u origin main</code></li>
+      <li><strong>Changer de branche :</strong> <code>git switch dev</code> ou <code>git checkout dev</code></li>
+      <li><strong>Créer une branche :</strong> <code>git checkout -b nouvelle-branche</code></li>
+      <li><strong>Afficher les logs :</strong> <code>git log --oneline --graph</code></li>
+      <li><strong>Voir les modifications :</strong> <code>git status</code> / <code>git diff</code></li>
+    </ul>
+
+    <h2>6. Conseils avancés</h2>
+    <ul>
+      <li>Utiliser <code>.gitignore</code> pour exclure des fichiers</li>
+      <li>Utiliser les alias Git :</li>
+      <pre><code>git config --global alias.co checkout
+git config --global alias.st status
+git config --global alias.br branch</code></pre>
+    </ul>
+
+    <footer>
+      <p>🛠️ Documentation générée automatiquement – Aetherion / SBSRATE</p>
+    </footer>
+  </div>
+</body>
+</html>
