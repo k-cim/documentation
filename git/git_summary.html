@@ -59,6 +59,116 @@
           <li>Synchronisation via fetch, merge, rebase…</li>
         <p>Cette architecture explique à elle seule la supériorité de Git dans des projets ouverts, massivement distribués, ou soumis à des contraintes réseau.</p>
       </section>
+  <section id="chapitre-2">
+    <h2>🧱 Chapitre 2 – Structure de l’environnement Git côté client</h2>
+  
+    <h3>2.1 Vue d’ensemble : trois niveaux de configuration Git</h3>
+    <p>Git fonctionne selon une hiérarchie claire de configuration, qui permet de personnaliser le comportement de manière locale ou globale.</p>
+    <table>
+      <thead><tr><th>Niveau</th><th>Portée</th><th>Fichier impliqué</th></tr></thead>
+      <tbody>
+        <tr><td>Système</td><td>Pour tous les utilisateurs</td><td>/etc/gitconfig</td></tr>
+        <tr><td>Global</td><td>Pour l’utilisateur courant</td><td>~/.gitconfig</td></tr>
+        <tr><td>Local</td><td>Pour un dépôt spécifique</td><td>./.git/config</td></tr>
+      </tbody>
+    </table>
+  
+    <h3>📘 Reprise section 2.3 – Fichier .git/config (configuration locale du dépôt)</h3>
+    <pre><code>[core]
+      repositoryformatversion = 0
+      filemode = true
+      bare = false
+      logallrefupdates = true
+  
+  [user]
+      name = Mickaël Puaud
+      email = mick@example.com
+  
+  [remote "origin"]
+      url = git@github.com:k-cim/sbsrate.git
+      fetch = +refs/heads/*:refs/remotes/origin/*</code></pre>
+  
+    <h4>🔍 Explication ligne par ligne</h4>
+    <ul>
+      <li><strong>[core]</strong> configure le comportement central du dépôt Git.</li>
+      <li><code>repositoryformatversion = 0</code> → version du format de dépôt (actuellement toujours 0).</li>
+      <li><code>filemode = true</code> → Git suit les permissions Unix (utile à désactiver sous Windows).</li>
+      <li><code>bare = false</code> → dépôt standard avec workspace visible.</li>
+      <li><code>logallrefupdates = true</code> → active git reflog.</li>
+    </ul>
+    <ul>
+      <li><strong>[user]</strong> → configuration locale prioritaire (name/email encodés dans chaque commit).</li>
+      <li><strong>[remote "origin"]</strong> → lien vers le dépôt distant, branches récupérées via fetch.</li>
+    </ul>
+  
+    <h3>2.2 Contenu du répertoire .git/</h3>
+    <pre><code>.git/
+  ├── HEAD
+  ├── config
+  ├── description
+  ├── hooks/
+  ├── info/
+  ├── objects/
+  ├── refs/
+  └── logs/</code></pre>
+    <p>✅ Aucun code source n’est versionné en clair. Tout est stocké sous forme d’objets (SHA-1), dans <code>objects/</code>.</p>
+  
+    <h3>🧾 Section 2.4 – Fichier ~/.gitconfig (configuration globale utilisateur)</h3>
+    <pre><code>[user]
+      name = Mickaël Puaud
+      email = mick@example.com
+  
+  [core]
+      editor = vim
+      pager = less -FRX
+  
+  [alias]
+      st = status
+      co = checkout
+      br = branch
+      ci = commit
+  
+  [credential]
+      helper = store</code></pre>
+  
+    <p>⚠️ <strong>[credential]</strong> → enregistre mots de passe/token en clair (peu sécurisé).</p>
+  
+    <h3>🔁 Section 2.5 – Gestion de plusieurs identités Git avec includeIf</h3>
+    <pre><code>[includeIf "gitdir:~/Dev/perso/"]
+      path = ~/.gitconfig-perso
+  
+  [includeIf "gitdir:~/Dev/pro/"]
+      path = ~/.gitconfig-pro</code></pre>
+    <p>💡 Git applique dynamiquement un fichier de configuration selon le chemin du dépôt.</p>
+  
+    <h3>🔐 Section 2.6 – Fichier ~/.ssh/config et gestion des identités SSH</h3>
+    <pre><code>Host github.com-perso
+      HostName github.com
+      User git
+      IdentityFile ~/.ssh/id_ed25519_perso
+      IdentitiesOnly yes
+  
+  Host github.com-pro
+      HostName github.com
+      User git
+      IdentityFile ~/.ssh/id_ed25519_pro
+      IdentitiesOnly yes</code></pre>
+  
+    <p>⚠️ Ne pas utiliser le même alias <code>github.com</code> pour plusieurs identités.</p>
+  
+    <h3>🔐 Section 2.7 – Configuration de sécurité Git : Credential helper et GPG</h3>
+    <pre><code>[credential]
+      helper = store
+  
+  [user]
+      signingkey = ABCDEF1234567890
+      email = mick@example.com
+  
+  [commit]
+      gpgsign = true</code></pre>
+  
+    <p>✅ <code>gpgsign = true</code> → permet de signer cryptographiquement chaque commit.</p>
+  </section>
     </main>
   </div>
   <script>
