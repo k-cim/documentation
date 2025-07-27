@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>git_summary.html – Documentation Git</title>
+  <link rel="stylesheet" href="summary.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <button id="theme-toggle">🌗 Thème</button>
+      <nav>
+        <ul>
+          <li><a href="#chapitre-1">📘 Chapitre 1 – Origines et justification de Git</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="content">
+      <section id="chapitre-1">
+        <h2>📘 Chapitre 1 – Origines et justification de Git</h2>
+        <h3>1.1 Contexte historique du développement logiciel en 2005</h3>
+        <p>Au début des années 2000, le projet du noyau Linux était maintenu par une communauté de développeurs répartis dans le monde entier...
+        Pour coordonner les contributions et maintenir la cohérence du code, un outil de gestion de versions était indispensable...</p>
+        <ul>
+          <li>CVS : modèle centralisé, rigide</li>
+          <li>Subversion (SVN) : évolution de CVS, mais centralisé</li>
+          <li>BitKeeper : seul outil moderne à approche distribuée</li>
+        </ul>
+        <h3>1.2 La rupture : l'abandon de BitKeeper</h3>
+        <p>En avril 2005, BitMover retire sa licence gratuite. Linus Torvalds refuse de revenir à CVS/SVN ou d'adopter un nouveau système propriétaire.</p>
+        <h3>1.3 Spécifications initiales de Git</h3>
+        <p>Le 3 avril 2005, Linus Torvalds lance Git. Objectifs initiaux :</p>
+        <ul>
+          <li>Vitesse</li>
+          <li>Distribution totale</li>
+          <li>Intégrité via SHA-1</li>
+          <li>Simplicité</li>
+          <li>Résilience</li>
+        </ul>
+        <blockquote>“I wanted a stupid content tracker... and that’s exactly what Git is.” — Linus Torvalds, 2005</blockquote>
+        <h3>1.4 Choix du nom « Git »</h3>
+        <p>Linus : “I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'Git'.”</p>
+        <h3>1.5 Résultats obtenus dès les premières semaines</h3>
+        <ul>
+          <li>Avril 2005 : Git est fonctionnel</li>
+          <li>2006 : adopté par d'autres projets</li>
+          <li>2008 : naissance de GitHub</li>
+        </ul>
+        <h3>1.6 Raisonnement sur le modèle distribué</h3>
+        <ul>
+          <li>Travail hors-ligne</li>
+          <li>Expérimentation sans risque</li>
+          <li>Synchronisation via fetch, merge, rebase…</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script>
+    const btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>
